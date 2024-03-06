@@ -22,7 +22,8 @@ jobs:
 
       - name: Install Maven
         run: |
-          curl -fsSL https://apache.osuosl.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz -o apache-maven-3.8.4-bin.tar.gz
+          # curl -fsSL https://apache.osuosl.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz -o apache-maven-3.8.4-bin.tar.gz
+          curl https://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.8.4-bin.tar.gz -o apache-maven-3.8.4-bin.tar.gz
           sudo tar -xf apache-maven-3.8.4-bin.tar.gz -C /opt
           sudo ln -s /opt/apache-maven-3.8.4 /opt/maven
           sudo ln -s /opt/maven/bin/mvn /usr/local/bin/mvn
