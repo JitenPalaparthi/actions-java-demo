@@ -14,3 +14,20 @@ jobs:
         run: |
           git clone https://github.com/${{ github.repository }} /tmp/repo
           mv /tmp/repo/* "${{ github.workspace }}"
+          
+      - name: Install Java 17
+        run: |
+          sudo apt update
+          sudo apt install -y openjdk-17-jdk
+
+      - name: Install Maven
+        run: |
+          curl -fsSL https://apache.osuosl.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz -o apache-maven-3.8.4-bin.tar.gz
+          sudo tar -xf apache-maven-3.8.4-bin.tar.gz -C /opt
+          sudo ln -s /opt/apache-maven-3.8.4 /opt/maven
+          sudo ln -s /opt/maven/bin/mvn /usr/local/bin/mvn
+      - name: Build
+        run: mvn compile
+
+      - name : test
+        run: mvn test
